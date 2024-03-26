@@ -8,13 +8,13 @@ const showCrafts = async () => {
   let craftsDiv = document.getElementById("crafts-container");
 
   craftsJSON.forEach((craft) => {
-    let section = document.createElement("div");
-    section.classList.add("craft-item");
-    craftsDiv.append(section);
+    let column = document.createElement("div");
+    column.classList.add("column");
+    craftsDiv.append(column);
 
     let img = document.createElement("img");
-    section.append(img);
-    img.src = "/images/" + craft.image;
+    column.append(img);
+    img.src = `/images/${craft.image}`;
     img.alt = craft.name;
     img.onclick = () => showModal(craft);
   });

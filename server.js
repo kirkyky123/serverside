@@ -3,6 +3,7 @@ const app = express();
 const fs = require('fs');
 const cors = require('cors');
 
+app.use(cors());
 app.use(express.static("public"));
 
 const craftsData = fs.readFileSync("crafts.json", "utf8");
@@ -12,7 +13,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.use(cors());
 app.get("/api/crafts", (req, res) => {
   res.json(crafts);
 });
