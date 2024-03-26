@@ -1,6 +1,13 @@
 const express = require("express");
 const app = express();
-const fs = require("fs")
+const fs = require("fs");
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(express.static("public"));
 
 const craftsData = fs.readFileSync("crafts.json", "utf8");
@@ -15,5 +22,5 @@ app.get("/api/crafts", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log(`running`);
+  console.log(`Server is running on port 3000`);
 });
