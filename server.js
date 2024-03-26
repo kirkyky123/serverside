@@ -1,13 +1,12 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const fs = require("fs");
+const fs = require('fs');
+const cors = require('cors');
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+const allowedOrigins = ['https://serverside-86ai.onrender.com/'];
+app.use(cors({
+  origin: allowedOrigins
+}));
 
 app.use(express.static("public"));
 
