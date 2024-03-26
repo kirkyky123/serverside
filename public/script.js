@@ -53,7 +53,7 @@ const showModal = (craft) => {
 
 const getJSON = async () => {
   try {
-    let response = await fetch("http://localhost:3000/api/crafts");
+    let response = await fetch("/api/crafts");
     let craftsJSON = await response.json();
     return craftsJSON;
   } catch (error) {
