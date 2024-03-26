@@ -2,11 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const cors = require('cors');
-
-const allowedOrigins = ['https://serverside-86ai.onrender.com/'];
-app.use(cors({
-  origin: allowedOrigins
-}));
+app.use(cors());
 
 app.use(express.static("public"));
 
