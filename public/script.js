@@ -14,7 +14,7 @@ const showCrafts = async () => {
 
     let img = document.createElement("img");
     section.append(img);
-    img.src = "http://localhost:3000/images/" + craft.image;
+    img.src = "/images/" + craft.image;
     img.alt = craft.name;
     img.onclick = () => showModal(craft);
   });
@@ -27,7 +27,7 @@ const showModal = (craft) => {
   const modalContent = document.getElementById("modal-content");
   modalContent.innerHTML = `
     <div class="modal-left">
-      <img src="http://localhost:3000/images/${craft.image}" alt="${craft.name}">
+      <img src="/images/${craft.image}" alt="${craft.name}">
     </div>
     <div class="modal-right">
       <span class="close">&times;</span>
